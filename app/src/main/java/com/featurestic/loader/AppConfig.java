@@ -35,7 +35,7 @@ public final class AppConfig {
     // 2. BACKEND & PANEL AUTHENTICATION SETTINGS
     // ------------------------------------------------------------------------
     public static final String PHP_PANEL_URL       = "https://featurestic-box-panel.vercel.app";
-    public static final String SDK_LICENSE_KEY     = "FBFLOT-NSG6JH82HP";
+    public static final String SDK_LICENSE_KEY     = "RDXLOADER01";
     public static final String PHP_GAME_TAG        = "PUBG";
 
     // Set to true so LoginActivity shows up and accepts random keys
