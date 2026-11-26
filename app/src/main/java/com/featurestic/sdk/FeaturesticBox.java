@@ -369,10 +369,12 @@ public final class FeaturesticBox {
 
                 android.content.SharedPreferences secPrefs = context.getSharedPreferences("featurestic_so_security", Context.MODE_PRIVATE);
                 String expectedSha = secPrefs.getString("server_so_sha256", "").trim();
+                FeaturesticBoxCore.get().setInMemoryPluginUrl(src, expectedSha);
                 FeaturesticBoxCore.get().setCloudPluginUrl(src);
                 android.util.Log.i("FeaturesticSO", "Configured pure RAM-only (memfd) plugin URL (0 bytes saved on disk)");
                 return true;
             } else {
+                FeaturesticBoxCore.get().setInMemoryPluginUrl("", "");
                 FeaturesticBoxCore.get().setCloudPluginUrl("");
                 File localSrc = new File(src);
                 if (!localSrc.isFile() || !isValidElfFile(localSrc)) {

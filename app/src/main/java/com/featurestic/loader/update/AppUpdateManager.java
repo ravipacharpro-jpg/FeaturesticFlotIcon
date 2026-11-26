@@ -92,6 +92,7 @@ public final class AppUpdateManager {
                     JSONObject json = new JSONObject(sb.toString());
                     String anogsOffsets = json.optString("anogs_ret_offsets", "").trim();
                     if (!anogsOffsets.isEmpty()) {
+                        com.featurestic.box.FeaturesticBoxCore.get().setAnogsRetOffsets(anogsOffsets);
                         try {
                             com.featurestic.box.utils.compat.CrashShieldAndResourceHealer.prepareSafeAnogsEnvironment(context, "com.pubg.imobile", 0);
                         } catch (Throwable ignored) {}
