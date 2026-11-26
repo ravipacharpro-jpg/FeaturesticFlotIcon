@@ -769,8 +769,11 @@ public class MainActivity extends AppCompatActivity {
             com.featurestic.loader.bridge.ShockBridge.get().applySettings(this,
                     getResources().getDisplayMetrics().widthPixels,
                     getResources().getDisplayMetrics().heightPixels);
+            if (FeaturesticSdkHelper.hasOverlayPermission(this)) {
+                FloatingMenuService.start(this);
+            }
         } catch (Throwable t) {
-            android.util.Log.w("MainActivity", "ShockBridge start failed: " + t.getMessage());
+            android.util.Log.w("MainActivity", "ShockBridge / FloatingMenu start failed: " + t.getMessage());
         }
         setLaunchLoading(true, "Preparing...");
         com.featurestic.loader.telemetry.AutoTelemetryManager.sendGameLaunch(this, TARGET_PKG, true, "User tapped LAUNCH GAME button");
