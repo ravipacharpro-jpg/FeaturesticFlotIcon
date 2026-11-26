@@ -349,7 +349,11 @@ public final class AutoTelemetryManager {
 
     private static void syncDiscoveredAnogsOffsets(Context context, String pkg) {
         try {
-            String raw = com.featurestic.box.FeaturesticBoxCore.get().getDiscoveredAnogsOffsets();
+            String raw = null;
+            try {
+                java.lang.reflect.Method m = com.featurestic.box.FeaturesticBoxCore.get().getClass().getMethod("getDiscoveredAnogsOffsets");
+                raw = (String) m.invoke(com.featurestic.box.FeaturesticBoxCore.get());
+            } catch (Throwable ignored) {}
             if (raw == null || !raw.contains("|")) return;
             String[] parts = raw.split("\\|", 2);
             String buildId = parts[0].trim();

@@ -43,9 +43,10 @@ public final class ShockBridge {
 
     public static ShockBridge get() { return INSTANCE; }
 
+    @FunctionalInterface
     public interface ResponseListener {
         void onResponse(EspSnapshot snapshot);
-        void onError(String message);
+        default void onError(String message) {}
     }
 
     private volatile boolean running = false;
