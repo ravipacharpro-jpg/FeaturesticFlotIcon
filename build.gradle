@@ -1,24 +1,7 @@
-// Minimal SDK-only build: no Firebase, app signing or LSParanoid required.
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.1'
-    }
+plugins {
+    id 'com.android.application' version '8.2.2' apply false
 }
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-}
-tasks.register('clean', Delete) { delete rootProject.buildDir }
-ext {
-    ndkVersion = '25.2.9519653'
-    compileSdk = 34
-    minSdk = 24
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

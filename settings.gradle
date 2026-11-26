@@ -1,4 +1,22 @@
-// SDK-only project. Host app is intentionally NOT included.
-pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
-include ':Bcore', ':black-reflection', ':compiler'
-rootProject.name = 'ELITE-BlackBox-SDK-AAR'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+            content {
+                includeGroupByRegex 'com\\.github\\..*'
+            }
+        }
+    }
+}
+rootProject.name = "FeaturesticLoader"
+include ':app'
